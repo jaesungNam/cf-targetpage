@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const ASSET_PREFIX = 'http://target.overpowerman.click'
+const ASSET_PREFIX = 'https://target.overpowerman.click'
 
 const nextConfig = {
   assetPrefix: ASSET_PREFIX,
