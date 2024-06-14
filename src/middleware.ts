@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const allowedOrigins = ['https://localhost:3000']
+const allowedOrigins = ['http://localhost:3000']
 
 const corsOptions = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -10,6 +10,7 @@ const corsOptions = {
 export function middleware(request: NextRequest) {
   // Check the origin from the request
   const origin = request.headers.get('origin') ?? ''
+  console.log(origin, request.url)
   const isAllowedOrigin = allowedOrigins.includes(origin)
 
   // Handle preflighted requests
