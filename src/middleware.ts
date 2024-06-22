@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 const allowedOrigins = ['https://www.overpowerman.click']
 
 const corsOptions = {
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 }
 
