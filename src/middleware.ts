@@ -37,6 +37,10 @@ export function middleware(request: NextRequest) {
   Object.entries(corsOptions).forEach(([key, value]) => {
     response.headers.set(key, value)
   })
+  console.log('----headers----')
+  Array.from(request.headers.entries()).forEach(e => {
+    console.log(`${e[0]} : ${e[1]}`)
+  })
   console.log('--------------------------------------------')
   return response
 }
