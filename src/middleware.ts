@@ -14,6 +14,11 @@ export function middleware(request: NextRequest) {
   console.log(`[${new Date().toString()}] - origin: ${origin}`)
   console.log(`[${new Date().toString()}] - requestUrl: ${request.method} ${request.url}`)
   console.log(`[${new Date().toString()}] - host: ${host}`)
+  console.log('----headers----')
+  Array.from(request.headers.entries()).forEach(e => {
+    console.log(`${e[0]} : ${e[1]}`)
+  })
+  console.log('--------------------------------------------')
   const isAllowedOrigin = allowedOrigins.includes(origin)
 
   // Handle preflighted requests
@@ -37,10 +42,5 @@ export function middleware(request: NextRequest) {
   Object.entries(corsOptions).forEach(([key, value]) => {
     response.headers.set(key, value)
   })
-  console.log('----headers----')
-  Array.from(request.headers.entries()).forEach(e => {
-    console.log(`${e[0]} : ${e[1]}`)
-  })
-  console.log('--------------------------------------------')
   return response
 }
