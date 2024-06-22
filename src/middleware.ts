@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const allowedOrigins = ['https://www.overpowerman.click']
 
-const corsOptions = {
+const corsOptions: Record<string, string> = {
   /*'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS, HEAD',*/
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  /*'Access-Control-Allow-Headers': 'Content-Type, Authorization',*/
 }
 
 export function middleware(request: NextRequest) {
@@ -29,14 +29,14 @@ export function middleware(request: NextRequest) {
       ...(isAllowedOrigin && { 'Access-Control-Allow-Origin': origin }),
       ...corsOptions,
     }
-    return NextResponse.json({}, { headers: preflightHeaders })
+    /*return NextResponse.json({}, { headers: preflightHeaders })*/
   }
 
   // Handle simple requests
   const response = NextResponse.next()
 
   if (isAllowedOrigin) {
-    response.headers.set('Access-Control-Allow-Origin', origin)
+    /*response.headers.set('Access-Control-Allow-Origin', origin)*/
   }
 
   Object.entries(corsOptions).forEach(([key, value]) => {
